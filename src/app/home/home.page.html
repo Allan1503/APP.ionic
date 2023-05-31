@@ -1,20 +1,170 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-row class="header-store">
+    <img src="/assets/img/Pao.png" alt="Pães" class="header-store logo" />
+    <ion-title class="header-store title">Padaria Pão Brasil</ion-title>
+  </ion-row>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row class="about-me">
+      <ion-col size="auto">
+        <h1 class="about-me title">Sobre Nós</h1>
+        <p class="about-me description">
+          A Padaria Pão Brasil é conhecida como a padaria mais famosa do Brasil,
+          oferecendo produtos de alta qualidade e um ambiente acolhedor para
+          seus clientes.
+        </p>
+      </ion-col>
+    </ion-row>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-row class="images">
+      <ion-col size="6" size-md="3" class="images product-image">
+        <ion-card>
+          <img alt="Silhouette of mountains" src="/assets/img/paes.jpg" />
+          <ion-card-header>
+            <ion-card-title>Pães</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="3" class="images product-image">
+        <ion-card>
+          <img alt="Silhouette of mountains" src="/assets/img/bolos.jpg" />
+          <ion-card-header>
+            <ion-card-title>Bolos</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-md="3" class="images product-image">
+        <ion-card>
+          <img alt="Silhouette of mountains" src="/assets/img/pizzas.jpg" />
+          <ion-card-header>
+            <ion-card-title>Pizzas</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+
+      <ion-col size="6" size-md="3" class="images product-image">
+        <ion-card>
+          <img alt="Silhouette of mountains" src="/assets/img/lanches.jpg" />
+          <ion-card-header>
+            <ion-card-title>Laches</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <h2 class="title">
+      <ion-icon name="car-front" class="custom-icon"></ion-icon>
+      Padarias mais próximas de você!
+      <ion-icon name="car-front" class="custom-icon"></ion-icon>
+    </h2>
+
+    <ion-row class="stores">
+      <ion-card class="stores card">
+        <img
+          alt="Silhouette of mountains"
+          src="/assets/img/padaria1.jpg"
+          class="stores store-images"
+        />
+        <ion-card-header>
+          <ion-card-title class="stores card title">Unidade Jacira</ion-card-title>
+          <ion-card-subtitle class="stores card subtitle">Rua Brasileira 1068</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content class="stores description">
+          (11) 99999-9999 próximo ao campo, só chegar que tem pão
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="stores card">
+        <img
+          alt="Silhouette of mountains"
+          src="/assets/img/padaria2.jpg"
+          class="stores store-images"
+        />
+        <ion-card-header>
+          <ion-card-title class="stores card title">Unidade Calu</ion-card-title>
+          <ion-card-subtitle class="stores card subtitle">Rua Ribeirinho 6810</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content class="stores description">
+          (11) 99999-9999 próximo ao campo, só chegar que tem pão
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card class="stores card">
+        <img
+          alt="Silhouette of mountains"
+          src="/assets/img/padaria3.jpg"
+          class="stores store-images"
+        />
+        <ion-card-header>
+          <ion-card-title class="stores card title">Unidade Vera</ion-card-title>
+          <ion-card-subtitle class="stores card subtitle">Rua Portuguesa 1511</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content class="stores description">
+          (11) 99999-9999 próximo ao campo, só chegar que tem pão
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+    <ion-row class="button">
+      <ion-button id="open-modal">CADASTRAR</ion-button>
+      <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+        <ng-template>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title>Cadastre sua padaria</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content class="ion-padding">
+            <form
+              action="http://localhost/formulario/cadastro2.php"
+              method="post"
+              class="form"
+            >
+              <ion-item>
+                <ion-label position="stacked">Nome</ion-label>
+                <ion-input
+                  type="text"
+                  placeholder="Nome"
+                  [(ngModel)]="name"
+                  name="name"
+                ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="stacked">Informações</ion-label>
+                <ion-input
+                  type="text"
+                  placeholder="Informações cadastrais"
+                  [(ngModel)]="info"
+                  name="info"
+                ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="stacked">Endereço</ion-label>
+                <ion-input
+                  type="text"
+                  placeholder="Endereço"
+                  [(ngModel)]="address"
+                  name="address"
+                ></ion-input>
+              </ion-item>
+            </form>
+          </ion-content>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-button (click)="cancel()">Cancelar</ion-button>
+            </ion-buttons>
+            <ion-buttons slot="end">
+              <ion-button (click)="confirm()" [strong]="true"
+                >Confirmar</ion-button
+              >
+            </ion-buttons>
+          </ion-toolbar>
+        </ng-template>
+      </ion-modal>
+    </ion-row>
+  </ion-grid>
 </ion-content>
